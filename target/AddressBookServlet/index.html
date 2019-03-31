@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Address Book</title>
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        #container {height: 100%; width:50%; font-size: 0;}
+        #left, #right {display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size: 12px;}
+        #left {width: 25%;}
+        #right {width: 25%;}
+    </style>
+</head>
+
+<script>
+    function addDataRows() {
+        for (var i = 1; i < 50; i++) {
+            console.log("adding");
+            var container = document.getElementById("wrap-container");
+            var clone = container.firstElementChild.cloneNode(true);
+            clone.getElementsByTagName('input')[0].id = "name" + i;
+            clone.getElementsByTagName('input')[0].name = "name" + i;
+            clone.getElementsByTagName('input')[1].id = "phone" + i;
+            clone.getElementsByTagName('input')[1].name = "phone" + i;
+            container.appendChild(clone);
+        }
+    }
+</script>
+<body onload="addDataRows();">
+<center>
+    <h1>
+        Add Phone numbers
+    </h1>
+    <form method="post" action="AddPhoneName">
+        <input type="submit" value="Submit" name="actionBtn">
+        <div id="wrap-container">
+            <div id="container">
+                <div id="left">Name: <input type="text" id="name0" name="name0" size="50"><br></div>
+                <div id="right">Phone: <input type="text" id="phone0" name="phone0" size="50"><br></div>
+            </div>
+        </div>
+        <BR>
+        <input type="submit" value="Submit" name="actionBtn">
+    </form>
+</center>
+</body>
+</html>
